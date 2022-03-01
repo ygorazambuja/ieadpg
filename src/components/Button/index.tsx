@@ -1,39 +1,20 @@
+import { Spinner } from "../Spinner";
+import { StyledButton } from "./styles";
+
 type ButtonProps = {
-    content: string;
-    onClick?: () => void;
-    primary?: boolean;
-    secondary?: boolean;
-    success?: boolean;
-};
+  content: string;
+  onClick?: () => void;
+  primary?: boolean;
+  secondary?: boolean;
+  success?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
+} & React.HTMLAttributes<HTMLButtonElement>;
 
-import "./styles.css";
-
-function Button({
-    content,
-    onClick,
-    primary,
-    secondary,
-    success,
-}: ButtonProps) {
-    return (
-        <>
-            {primary && (
-                <button className="primary-button" onClick={onClick}>
-                    <span className="primary-button-text">{content}</span>
-                </button>
-            )}
-            {secondary && (
-                <button className="secondary-button" onClick={onClick}>
-                    <span className="secondary-button-text">{content}</span>
-                </button>
-            )}
-            {success && (
-                <button className="success-button" onClick={onClick}>
-                    <span className="success-button-text">{content}</span>
-                </button>
-            )}
-        </>
-    );
+function Button({ content, loading, ...rest }: ButtonProps) {
+  return (
+    <StyledButton {...rest}>{loading ? <Spinner /> : content}</StyledButton>
+  );
 }
 
 export default Button;

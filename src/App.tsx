@@ -1,17 +1,14 @@
-import Button from "./components/Button";
+import { AppRouter } from "./AppRouter";
+import { AuthProvider } from "./hooks/useAuth";
+import { GlobalStyles } from "./styles/global";
 
-function App() {
-    return (
-        <div className="App">
-            <Button
-                content="Acessar"
-                onClick={() => {
-                    console.log("oi");
-                }}
-                primary
-            />
-        </div>
-    );
+export function App() {
+  return (
+    <>
+      <GlobalStyles />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
+    </>
+  );
 }
-
-export default App;
