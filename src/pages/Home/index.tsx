@@ -11,8 +11,8 @@ import { GlobalStyles } from "../../styles/global";
 export function Home() {
   const [selectedState, setSelectedState] = useState<Option>({} as Option);
   const [selectedCity, setSelectedCity] = useState<Option>({} as Option);
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [states, setStates] = useState<Option[]>([]);
+  const [cities, setCities] = useState<Option[]>([]);
 
   useEffect(() => {
     handleFetchState();

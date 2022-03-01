@@ -17,9 +17,7 @@ export async function asyncFetchCities(state: string) {
   `);
 
   const { data } = response;
-  return convertCitiesToSelectOptions(data).sort((a, b) =>
-    a.label.localeCompare(b.label)
-  );
+  return convertCitiesToSelectOptions(data);
 }
 
 type State = {
@@ -33,11 +31,13 @@ type City = {
   nome: string;
 };
 
-function convertCitiesToSelectOptions(cities: City[]) {
-  return cities.map((city) => ({
-    value: city.id,
-    label: city.nome,
-  }));
+function convertCitiesToSelectOptions(cities: City[]): Option[] {
+  return cities
+    .map((city) => ({
+      value: String(city.id),
+      label: city.nome,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 function convertStateToSelectOptions(states: State[]): Option[] {
