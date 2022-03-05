@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { lighten } from "polished";
 
 export const ThemeColors = {
@@ -13,15 +13,28 @@ export const ThemeColors = {
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --green: #33cc95;
-    --blue: #5429CC;
-    --blue-light: #6933ff;
+    --green: #78B728;
+    /* --blue: #5429CC; */
+    --blue-light: #9975ff;
     --red: #E52E4D;
-    --text-title: ##B8B8B8;
+    --text-title: #B8B8B8;
     --shape: #f0f2f5;
     --label: #616161;
     --green-light: #ccf2e5;
+    --blue: #6C91C2
   }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+    }
+  }
+
+
 
   * {
     margin: 0;
@@ -35,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
   }
 
@@ -60,4 +73,15 @@ export const GlobalStyles = createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

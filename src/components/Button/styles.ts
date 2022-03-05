@@ -11,7 +11,7 @@ interface StyledButtonProps {
 
 export const StyledButton = styled.button<StyledButtonProps>`
   max-width: 100%;
-  min-width: 100px;
+  min-width: 10rem;
   height: 48px;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);

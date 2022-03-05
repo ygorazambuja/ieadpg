@@ -34,7 +34,7 @@ type City = {
 function convertCitiesToSelectOptions(cities: City[]): Option[] {
   return cities
     .map((city) => ({
-      value: String(city.id),
+      value: city.nome,
       label: city.nome,
     }))
     .sort((a, b) => a.label.localeCompare(b.label));

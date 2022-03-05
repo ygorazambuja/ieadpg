@@ -6,17 +6,20 @@ export const Container = styled.div`
   flex-direction: column;
 
   width: 100%;
+
+  padding: 0px 4px;
 `;
 
 export const StyledLabel = styled.label`
   padding: 0.8rem 0;
-  font-family: "PT-Sans", sans-serif;
   color: var(--label);
   font-weight: 400;
+
+  font-size: 1.1rem;
 `;
 
 export const StyledInput = styled.input`
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 12px;
 

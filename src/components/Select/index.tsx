@@ -21,9 +21,16 @@ interface SelectProps {
   options: Option[];
   value?: Option;
   setValue: (value: Option) => void;
+  placeholder?: string;
 }
 
-export function Select({ label, options, value, setValue }: SelectProps) {
+export function Select({
+  label,
+  options,
+  value,
+  setValue,
+  placeholder,
+}: SelectProps) {
   const ref = useRef(null);
   const [isSelectOpen, setIsSelectOpen] = useState(false);
 

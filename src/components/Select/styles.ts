@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
+  min-width: 200px;
 `;
 
 export const StyledLabel = styled.label`
@@ -13,9 +15,10 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledSelectContainer = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 12px;
+  height: 3.2rem;
 `;
 
 export const StyledSelectDropdown = styled.div`
@@ -24,6 +27,11 @@ export const StyledSelectDropdown = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 
+  position: absolute;
+
+  z-index: 1;
+  margin-top: 88px;
+  background-color: var(--shape);
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
     width: 0px;
@@ -40,7 +48,7 @@ export const StyledSelectDropdownItem = styled.div<StyledSelectDropdownItemProps
   width: 100%;
   background: ${({ active }) =>
     active ? "var(--green-light)" : "transparent"};
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 12px;
   z-index: 1;
 
@@ -53,7 +61,7 @@ export const StyledSelectDropdownItem = styled.div<StyledSelectDropdownItemProps
   &:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
   }
   &:first-child {
     border-top-left-radius: 8px;
