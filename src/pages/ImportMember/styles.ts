@@ -2,7 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  background-color: #f3f2f2;
 
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 70vh;
+
+  input {
+    display: none;
+  }
 `;

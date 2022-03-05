@@ -9,11 +9,14 @@ type ButtonProps = {
   success?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLButtonElement>;
 
-function Button({ content, loading, ...rest }: ButtonProps) {
+function Button({ content, loading, children, ...rest }: ButtonProps) {
   return (
-    <StyledButton {...rest}>{loading ? <Spinner /> : content}</StyledButton>
+    <StyledButton {...rest}>
+      {loading ? <Spinner /> : content} {children}
+    </StyledButton>
   );
 }
 

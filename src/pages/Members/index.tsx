@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   FiFilter,
+  FiGift,
+  FiHome,
   FiMenu,
   FiMoreVertical,
   FiPlus,
@@ -44,7 +46,24 @@ export function Members() {
           setIsMemberDrawerOpen(true);
         }}
       />
-      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
+        <ListTile
+          onClick={() => {
+            history.push("/home");
+          }}
+        >
+          <FiHome />
+          Home
+        </ListTile>
+        <ListTile
+          onClick={() => {
+            history.push("/birthdays");
+          }}
+        >
+          <FiGift />
+          Aniversariantes
+        </ListTile>
+      </Drawer>
       <Drawer
         isOpen={isMemberDrawerOpen}
         onClose={() => setIsMemberDrawerOpen(false)}
@@ -58,7 +77,7 @@ export function Members() {
             <FiPlus />
             <span>Adicionar membro</span>
           </ListTile>
-          <ListTile>
+          <ListTile onClick={() => history.push("/import-member")}>
             <FiShare />
             <span>Importar</span>
           </ListTile>

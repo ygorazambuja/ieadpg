@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FiCamera, FiLogOut, FiMenu } from "react-icons/fi";
+import { FiCamera, FiGift, FiLogOut, FiMenu, FiUsers } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { Appbar } from "../../components/Appbar";
 import Button from "../../components/Button";
@@ -7,6 +7,7 @@ import { Chip } from "../../components/Chip";
 import { Drawer } from "../../components/Drawer";
 import { IconButton } from "../../components/IconButton";
 import { Input } from "../../components/Input";
+import { ListTile } from "../../components/ListTile";
 import { Option, Select } from "../../components/Select";
 import { useAuth } from "../../hooks/useAuth";
 import {
@@ -56,7 +57,18 @@ export function Home() {
         onTrailingClick={handleLogout}
       />
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        <button onClick={() => history.push("/members")}>members</button>
+        <ListTile onClick={() => history.push("/members")}>
+          <FiUsers />
+          <span>Membros</span>
+        </ListTile>
+        <ListTile
+          onClick={() => {
+            history.push("/birthdays");
+          }}
+        >
+          <FiGift />
+          <span>Aniversariantes</span>
+        </ListTile>
       </Drawer>
       <Button
         content="Primary"
