@@ -74,7 +74,7 @@ export function FirstStep({ form, setForm, onNextStep }: FirstStepForm) {
           type="email"
         />
         <Row style={{ justifyContent: "space-around" }}>
-          <Column style={{ flex: "1", padding: "0px 4px" }}>
+          <Column style={{ flex: 3, padding: "0px 4px" }}>
             <Select
               label="Escolaridade"
               value={education}
@@ -82,7 +82,7 @@ export function FirstStep({ form, setForm, onNextStep }: FirstStepForm) {
               setValue={(option) => setEducation(option)}
             />
           </Column>
-          <Column>
+          <Column style={{ flex: 1 }}>
             <Select
               label="Fator RH"
               options={BLOOD_TYPE_OPTIONS}
@@ -110,6 +110,12 @@ export function FirstStep({ form, setForm, onNextStep }: FirstStepForm) {
           label="Congregação"
           value={form.congregationPlace}
           name="congregationPlace"
+          onChange={handleChange}
+        />
+        <Input
+          label="Endereço"
+          value={form.address}
+          name="address"
           onChange={handleChange}
         />
       </CardForm>

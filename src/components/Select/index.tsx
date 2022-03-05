@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   Container,
   StyledSelectContainer,
@@ -46,13 +46,18 @@ export function Select({
     return value?.value === option.value;
   }
 
+  const hasValueInInput = useMemo(() => {
+    return !!value?.value;
+  }, [value]);
+
   useOnClickOutside(ref, toggleSelectOpen);
 
   return (
     <Container ref={ref}>
       <StyledLabel>{label}</StyledLabel>
       <StyledSelectContainer onClick={handleSelectOpen}>
-        {value?.label}
+        {hasValueInInput && value?.label}
+        {!hasValueInInput && <span>{placeholder}</span>}
       </StyledSelectContainer>
       {isSelectOpen && (
         <StyledSelectDropdown>

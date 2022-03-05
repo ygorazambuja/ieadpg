@@ -42,7 +42,7 @@ export function SecondStep({ form, setForm, onNextStep }: SecondStepProps) {
     asyncFetchCities(selectedState.value).then((cities) => setCities(cities));
   }, [selectedState]);
 
-  function handleSubmit() {
+  function handleNextStep() {
     setForm({
       ...form,
       civilState: civilState.value || "",
@@ -50,6 +50,7 @@ export function SecondStep({ form, setForm, onNextStep }: SecondStepProps) {
       birthCity: selectedCity.value || "",
     });
 
+    console.log("secondsStep");
     onNextStep();
   }
 
@@ -145,20 +146,22 @@ export function SecondStep({ form, setForm, onNextStep }: SecondStepProps) {
             options={states}
             setValue={setSelectedState}
             value={selectedState}
+            placeholder="Selecione o estado"
           />
           <Select
-            label="Cidades"
+            label="Cidade"
             options={cities}
             setValue={setSelectedCity}
             value={selectedCity}
+            placeholder="Selecione uma cidade"
           />
         </div>
       </CardForm>
       <ActiveBar>
-        <Button content="Abandonar" secondary>
+        <Button content="Voltar" secondary onClick={() => {}}>
           Salvar
         </Button>
-        <Button content="Continuar" primary onClick={handleSubmit}>
+        <Button content="Continuar" primary onClick={handleNextStep}>
           Cancelar
         </Button>
       </ActiveBar>

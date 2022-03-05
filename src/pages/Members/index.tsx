@@ -12,6 +12,8 @@ import { Drawer } from "../../components/Drawer";
 import { ListTile } from "../../components/ListTile";
 import { Member } from "../../entities/member";
 import { getAllMembers } from "../../services/firebase/members.firebase";
+import { MemberListTile } from "./MemberListTile";
+import { Container } from "./styles";
 
 export function Members() {
   const history = useHistory();
@@ -24,6 +26,10 @@ export function Members() {
       setMembers(data);
     });
   }, []);
+
+  function handleRedirectToDetails(member: Member) {
+    history.push(`/members/${member.id}`);
+  }
 
   return (
     <>
@@ -62,7 +68,16 @@ export function Members() {
           </ListTile>
         </ul>
       </Drawer>
-      <h1>Members Page</h1>
+
+      <Container>
+        {members.map((member) => (
+          <MemberListTile
+            key={member.id}
+            member={member}
+            onClick={handleRedirectToDetails}
+          />
+        ))}
+      </Container>
     </>
   );
 }

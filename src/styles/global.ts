@@ -40,13 +40,13 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  body {
-    background: var(--background);
     -webkit-font-smoothing: antialiased;
   }
-
+  
+  body {
+    background: var(--background);
+  }
+  
   body, input, textarea, button {
     font-family: 'PT Sans', sans-serif;
     font-weight: 400;

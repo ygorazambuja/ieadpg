@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { CardFormTitle, Container } from "./styles";
 
 type CardFormProps = {
   children?: React.ReactNode;
@@ -7,7 +7,7 @@ type CardFormProps = {
 export function CardForm({ children, title }: CardFormProps) {
   return (
     <Container>
-      <span>{title}</span>
+      <CardFormTitle>{title}</CardFormTitle>
       {children}
     </Container>
   );

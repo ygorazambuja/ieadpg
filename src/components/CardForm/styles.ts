@@ -3,16 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
 
-  padding: 12px 4px;
+  padding: 12px 8px;
   flex-direction: column;
 
   border-top: 1px solid #b8b8b8;
 
-  span {
-    font-size: 14px;
-    color: #adabab;
-    text-transform: uppercase;
-  }
+  font-size: 1.2rem;
 
   .grid {
     display: grid;
@@ -24,4 +20,14 @@ export const Container = styled.div`
       ". ."
       ". .";
   }
+  & strong {
+    font-weight: 600;
+    padding-right: 8px;
+  }
+`;
+
+export const CardFormTitle = styled.div`
+  font-size: 14px;
+  color: #adabab;
+  text-transform: uppercase;
 `;
